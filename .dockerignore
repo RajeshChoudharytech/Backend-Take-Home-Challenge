@@ -1,0 +1,45 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyo
+
+# Virtual environments
+.venv/
+env/
+venv/
+*.egg-info/
+
+# Django static and media files (if built dynamically)
+staticfiles/
+media/
+
+# Ignore test and development artifacts
+*.log
+*.sqlite3
+*.bak
+
+# Exclude IDE/editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js dependencies (if using npm/yarn for front-end assets)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Git-related files
+.git/
+.gitignore
+
+# Docker-related files (optional, to avoid nested builds)
+Dockerfile~
+docker-compose.override.yml
+
+# Exclude large files or temporary directories
+tmp/
+build/
+dist/

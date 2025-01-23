@@ -1,0 +1,39 @@
+### Python ###
+*.py[cod]
+*.pyo
+__pycache__/
+
+### Django ###
+*.log
+*.pot
+*.pyc
+*.pyo
+*.sqlite3
+/static/
+/media/
+
+### Environment ###
+.env
+
+### Virtual Environments ###
+venv/
+.env/
+
+### Docker ###
+*.log
+docker-compose.override.yml
+
+### Coverage ###
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+
+### VS Code ###
+.vscode/
+
+### MacOS ###
+.DS_Store
+
+### System Files ###
+Thumbs.db
