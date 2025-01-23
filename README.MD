@@ -59,8 +59,8 @@ project_root/
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
-   cd project_root
+   git clone https://github.com/RajeshChoudharytech/Backend-Take-Home-Challenge.git
+   cd Backend-Take-Home-Challenge
    ```
 
 2. **Build the Docker image**:
@@ -146,59 +146,3 @@ pytest --cov=.
 ```
 
 ---
-
-## Docker Details
-
-### `docker-compose.yml`
-
-```yaml
-version: '3.8'
-
-services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: >
-      sh -c "python manage.py migrate && \
-             python manage.py collectstatic --noinput && \
-             gunicorn config.wsgi:application --bind 0.0.0.0:8000"
-    ports:
-      - "8000:8000"
-    volumes:
-      - .:/app
-    environment:
-      DJANGO_SETTINGS_MODULE: ecommerce.settings
-    depends_on:
-      - db
-
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    ports:
-      - "5432:5432"
-
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: pytest --cov=.
-    volumes:
-      - .:/app
-    environment:
-      DJANGO_SETTINGS_MODULE: ecommerce.settings
-    depends_on:
-      - db
-```
-
----
-
-## Notes
-
-- Ensure your `media/` directory is writable for image uploads.
-- Update the `DJANGO_SETTINGS_MODULE` in the `docker-compose.yml` file if your project name differs.
-- Adjust the `POSTGRES_*` environment variables in `docker-compose.yml` to match your setup.
-
